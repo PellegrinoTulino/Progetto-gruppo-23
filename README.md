@@ -7,3 +7,9 @@ La rivisitazione della Schedulazione del 28/11/2023 è disponibile [qui](https:/
 La documentazione sull'analisi dei requisiti è visibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13504544/Requisiti.pdf)
 
 La matrice di tracciabilità è disponibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13504552/Matrice.Tracciabilita.pdf)
+
+La documentazione sul design è disponibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13556688/Design.pdf)
+
+La matrice di tracciabilità aggiornata è disponibile qui [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13556692/Tracciabilita.pdf)
+
+
