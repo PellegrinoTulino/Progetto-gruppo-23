@@ -46,8 +46,8 @@ public class NumeroComplesso {
             throw new PhaseOfZeroException("Fase del numero complesso 0+0i non definita");
         }
         if((realPart==0.0d) && (imPart!=0.0d)){
-            if(imPart > 0.0d) return (double) Math.PI/2.0d;
-            if(imPart < 0.0d) return (double) -(Math.PI)/2.0d;
+            if(imPart > 0.0d) return (double) Math.PI/2.0;
+            if(imPart < 0.0d) return (double) -(Math.PI)/2.0;
         }
         else if(realPart > 0.0d){
             return Math.atan((double)(imPart/realPart));
@@ -71,7 +71,7 @@ public class NumeroComplesso {
             return Double.toString(imPart) + "i";
         }
         else {
-            if(imPart>0.0d){
+            if(imPart>0){
                 if(imPart == 1.0d) return Double.toString(realPart) + "+i";
                 return Double.toString(realPart) + "+" + Double.toString(imPart) + "i";
             }
