@@ -10,5 +10,8 @@ package com.mycompany.ingegneria_software;
  * @author marco
  */
 public class Stack {
-    
+    int a=5;
+    private void mess(){
+        System.out.println(a);
+    }
 }
