@@ -5,13 +5,45 @@
  */
 package com.mycompany.ingegneria_software;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 /**
  *
  * @author marco
  */
 public class Stack {
-    int a=5;
-    private void mess(){
-        System.out.println(a);
+    private Deque<NumeroComplesso> stack;
+    private int numElementi;
+
+    public Stack() {
+        this.stack = new ArrayDeque<>();
+        this.numElementi = 0;
+    }
+
+    public Deque<NumeroComplesso> getStack() {
+        return stack;
+    }
+    
+    public int getNumElementi() {
+        return numElementi;
+    }
+    
+    public void push(NumeroComplesso num){
+        stack.addLast(num);
+        numElementi=stack.size();
+    }
+    
+    public NumeroComplesso pop(){
+        NumeroComplesso num = stack.removeLast();
+        numElementi = stack.size();
+        return num;
+    }
+    
+    public NumeroComplesso top(){
+        return stack.getLast();
+    }
+    
+    public boolean isEmpty(){
+        return stack.size()==0;
     }
 }
