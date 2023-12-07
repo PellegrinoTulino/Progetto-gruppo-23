@@ -27,6 +27,10 @@ public class Stack {
     public int getNumElementi() {
         return numElementi;
     }
+
+    public void setNumElementi(int numElementi) {
+        this.numElementi = numElementi;
+    }
     
     public void push(NumeroComplesso num){
         stack.addLast(num);
@@ -44,6 +48,6 @@ public class Stack {
     }
     
     public boolean isEmpty(){
-        return stack.size()==0;
+        return numElementi==0;
     }
 }
