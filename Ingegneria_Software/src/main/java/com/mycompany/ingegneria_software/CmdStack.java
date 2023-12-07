@@ -19,11 +19,8 @@ public class CmdStack implements OperazioniStack {
    
     @Override
     public void stackClear() {
-        Deque<NumeroComplesso> s;
-        s= stack.getStack();
-        if(!s.isEmpty()){
-            s.clear();
-            stack.setNumElementi(0);
+        while(!stack.isEmpty()){
+            NumeroComplesso n= stack.pop();
         }
     }
 

@@ -19,17 +19,9 @@ public class Stack {
         this.stack = new ArrayDeque<>();
         this.numElementi = 0;
     }
-
-    public Deque<NumeroComplesso> getStack() {
-        return stack;
-    }
     
     public int getNumElementi() {
         return numElementi;
-    }
-
-    public void setNumElementi(int numElementi) {
-        this.numElementi = numElementi;
     }
     
     public void push(NumeroComplesso num){
