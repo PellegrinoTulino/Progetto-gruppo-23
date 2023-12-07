@@ -32,10 +32,7 @@ public class CmdStack implements OperazioniStack {
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione drop su stack vuoto");
         }
-        Deque<NumeroComplesso> s;
-        s= stack.getStack();
-        NumeroComplesso n= s.removeLast();
-        stack.setNumElementi(s.size());
+        NumeroComplesso n= stack.pop();
         
     }
 
