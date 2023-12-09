@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class OperationException extends RuntimeException{
+public class OperationException extends Exception{
 
     /**
      * Creates a new instance of <code>OperationException</code> without detail
