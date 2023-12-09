@@ -9,6 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
+/*Questa interfaccia fornisce i metodi per la manipolazione di uno stack*/
 public interface OperazioniStack {
     public void stackClear();
     public void stackDrop();

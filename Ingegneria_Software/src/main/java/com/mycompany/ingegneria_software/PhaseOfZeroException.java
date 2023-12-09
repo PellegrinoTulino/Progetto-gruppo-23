@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class PhaseOfZeroException extends RuntimeException {
+public class PhaseOfZeroException extends OperationException {
 
     /**
      * Creates a new instance of <code>PhaseOfZeroException</code> without

@@ -9,11 +9,12 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
+/*Questa interfaccia fornisce i metodi per le operazioni basilati*/
 public interface Operazioni {
     public NumeroComplesso somma(NumeroComplesso a, NumeroComplesso b);
     public NumeroComplesso differenza(NumeroComplesso a, NumeroComplesso b);
     public NumeroComplesso prodotto(NumeroComplesso a, NumeroComplesso b);
     public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b);
-    public NumeroComplesso sqrt(NumeroComplesso a);
+    public NumeroComplesso radiceQuadrata(NumeroComplesso a);
     public NumeroComplesso invertSign(NumeroComplesso a);
 }

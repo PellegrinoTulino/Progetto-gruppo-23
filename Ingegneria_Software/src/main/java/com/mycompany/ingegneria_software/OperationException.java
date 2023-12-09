@@ -9,22 +9,22 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class StackIsEmptyException extends StackException{
+public class OperationException extends RuntimeException{
 
     /**
-     * Creates a new instance of <code>StackIsEmptyException</code> without
-     * detail message.
+     * Creates a new instance of <code>OperationException</code> without detail
+     * message.
      */
-    public StackIsEmptyException() {
+    public OperationException() {
     }
 
     /**
-     * Constructs an instance of <code>StackIsEmptyException</code> with the
+     * Constructs an instance of <code>OperationException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public StackIsEmptyException(String msg) {
+    public OperationException(String msg) {
         super(msg);
     }
 }

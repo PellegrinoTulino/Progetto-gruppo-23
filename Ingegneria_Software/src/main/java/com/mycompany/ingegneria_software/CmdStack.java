@@ -4,47 +4,52 @@
  * and open the template in the editor.
  */
 package com.mycompany.ingegneria_software;
-import java.util.ArrayDeque;
-import java.util.Deque;
+
 /**
  *
  * @author marco
  */
-public class CmdStack implements OperazioniStack {
-    private Stack stack;
+  /*Questa classe fornisce operazioni di manopolazione su una struttura dati di tipo stack*/
+public class CmdStack <T> implements OperazioniStack {
+    private Stack<T> stack;
     
-    public CmdStack(Stack stack) {
+    public CmdStack(Stack<T> stack) {
         this.stack = stack;
     }
    
     @Override
     public void stackClear() {
+        /*questo metodo cancella tutti gli elementi dallo stack*/
         while(!stack.isEmpty()){
-            NumeroComplesso n= stack.pop();
+            stack.pop();
         }
     }
 
     @Override
     public void stackDrop() {
+        /*questo metodo cancella l'ultimo elemento presente nello stack*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione drop su stack vuoto");
         }
-        NumeroComplesso n= stack.pop();
+        stack.pop();
         
     }
 
     @Override
     public void stackDup() {
+        /*Questo metodo inserisce nello stack una copia dell'ultimo elemento*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione dup su stack vuoto");
         }
         
-        NumeroComplesso last= stack.top();
+        T last= stack.top();
         stack.push(last);       
     }
 
     @Override
     public void stackSwap() {
+        /*Questo metodo scambia di posto gli ultimi due elementi presenti
+        nello stack*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione swap su stack vuoto");
         }
@@ -52,9 +57,10 @@ public class CmdStack implements OperazioniStack {
         if(stack.getNumElementi()==1){
             throw new NotEnoughElementException("Impossibile effettuare operazione dup su uno stack con un elemento ");
         }
-        
-        NumeroComplesso last = stack.pop();
-        NumeroComplesso nextLast= stack.pop();
+        //estraggo i due elementi
+        T last = stack.pop();
+        T nextLast= stack.pop();
+        //li inserisco in ordine inverso
         stack.push(last);
         stack.push(nextLast);
     
@@ -62,6 +68,7 @@ public class CmdStack implements OperazioniStack {
 
     @Override
     public void stackOver() {
+        /*Questo metodo inserisce nello stack una copia del penultimo elemento*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione over su stack vuoto");
         }
@@ -69,9 +76,10 @@ public class CmdStack implements OperazioniStack {
         if(stack.getNumElementi()==1){
             throw new NotEnoughElementException("Impossibile effettuare operazione over su uno stack con un elemento ");
         }
-        NumeroComplesso last = stack.pop();
-        NumeroComplesso nextLast= stack.pop();
-        stack.push(nextLast);
+        //estraggo l'ultimo elemento e copio il penultimo elemento
+        T last = stack.pop();
+        T nextLast= stack.top();
+        //inserisco l'ultimo elemento e una copia del penultimo elemento
         stack.push(last);
         stack.push(nextLast);
     }

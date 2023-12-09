@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class NotEnoughElementException extends RuntimeException{
+public class NotEnoughElementException extends StackException{
 
     /**
      * Creates a new instance of <code>NotEnoughElementException</code> without
