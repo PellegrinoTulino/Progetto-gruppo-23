@@ -23,6 +23,6 @@ public interface Operazioni {
      * @throws DividedByZeroException
      */
     public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b) throws DividedByZeroException;
-    public NumeroComplesso radiceQuadrata(NumeroComplesso a);
+    public NumeroComplesso radiceQuadrata(NumeroComplesso a) throws PhaseOfZeroException;
     public NumeroComplesso invertSign(NumeroComplesso a);
 }

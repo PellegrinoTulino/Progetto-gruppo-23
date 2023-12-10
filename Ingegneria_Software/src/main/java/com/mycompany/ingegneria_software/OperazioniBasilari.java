@@ -59,7 +59,7 @@ public class OperazioniBasilari implements Operazioni{
     }
 
     @Override
-    public NumeroComplesso radiceQuadrata(NumeroComplesso a) {
+    public NumeroComplesso radiceQuadrata(NumeroComplesso a) throws PhaseOfZeroException{
         /*questo metodo calcola la radice quadrata di un numero complesso utilizzando la formula di 
         De Moivre per k=0*/
         if((a.getRealPart()==0.0d) && (a.getImPart()==0.0d)) return a;
