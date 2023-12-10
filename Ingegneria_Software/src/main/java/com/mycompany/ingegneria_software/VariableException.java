@@ -7,24 +7,24 @@ package com.mycompany.ingegneria_software;
 
 /**
  *
- * @author marco
+ * @author ANDREA
  */
-public class StackException extends Exception{
+public class VariableException extends Exception{
 
     /**
-     * Creates a new instance of <code>StackException</code> without detail
+     * Creates a new instance of <code>VariableException</code> without detail
      * message.
      */
-    public StackException() {
+    public VariableException() {
     }
 
     /**
-     * Constructs an instance of <code>StackException</code> with the specified
-     * detail message.
+     * Constructs an instance of <code>VariableException</code> with the
+     * specified detail message.
      *
      * @param msg the detail message.
      */
-    public StackException(String msg) {
+    public VariableException(String msg) {
         super(msg);
     }
 }

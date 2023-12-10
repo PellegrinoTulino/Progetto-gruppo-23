@@ -18,7 +18,7 @@ public class CmdStack <T> implements OperazioniStack {
     }
    
     @Override
-    public void stackClear() {
+    public void stackClear()  throws StackIsEmptyException{
         /*questo metodo cancella tutti gli elementi dallo stack*/
         while(!stack.isEmpty()){
             stack.pop();
@@ -26,7 +26,7 @@ public class CmdStack <T> implements OperazioniStack {
     }
 
     @Override
-    public void stackDrop() {
+    public void stackDrop() throws StackIsEmptyException{
         /*questo metodo cancella l'ultimo elemento presente nello stack*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione drop su stack vuoto");
@@ -36,7 +36,7 @@ public class CmdStack <T> implements OperazioniStack {
     }
 
     @Override
-    public void stackDup() {
+    public void stackDup() throws StackIsEmptyException{
         /*Questo metodo inserisce nello stack una copia dell'ultimo elemento*/
         if(stack.isEmpty()){
             throw new StackIsEmptyException("Impossibile effettuare operazione dup su stack vuoto");
@@ -47,15 +47,11 @@ public class CmdStack <T> implements OperazioniStack {
     }
 
     @Override
-    public void stackSwap() {
-        /*Questo metodo scambia di posto gli ultimi due elementi presenti
-        nello stack*/
-        if(stack.isEmpty()){
-            throw new StackIsEmptyException("Impossibile effettuare operazione swap su stack vuoto");
-        }
-        
-        if(stack.getNumElementi()==1){
-            throw new NotEnoughElementException("Impossibile effettuare operazione dup su uno stack con un elemento ");
+     /*Questo metodo scambia di posto i due elementi in cima
+        allo stack*/
+    public void stackSwap() throws NotEnoughElementException, StackIsEmptyException{ 
+        if(stack.getNumElementi()<2){
+            throw new NotEnoughElementException("Sono presenti meno di due elementi nello stack. Impossibile effettuare lo swap");
         }
         //estraggo i due elementi
         T last = stack.pop();
@@ -67,14 +63,10 @@ public class CmdStack <T> implements OperazioniStack {
     }
 
     @Override
-    public void stackOver() {
+    public void stackOver() throws NotEnoughElementException, StackIsEmptyException{
         /*Questo metodo inserisce nello stack una copia del penultimo elemento*/
-        if(stack.isEmpty()){
-            throw new StackIsEmptyException("Impossibile effettuare operazione over su stack vuoto");
-        }
-        
-        if(stack.getNumElementi()==1){
-            throw new NotEnoughElementException("Impossibile effettuare operazione over su uno stack con un elemento ");
+        if(stack.getNumElementi()<2){
+            throw new NotEnoughElementException("Sono presenti meno di due elementi nello stack. Impossibile effettuare l'over");
         }
         //estraggo l'ultimo elemento e copio il penultimo elemento
         T last = stack.pop();

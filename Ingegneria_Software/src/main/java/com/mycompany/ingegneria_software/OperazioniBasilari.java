@@ -38,8 +38,15 @@ public class OperazioniBasilari implements Operazioni{
                         a.getImPart()*b.getRealPart());
     }
 
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     * @throws DividedByZeroException
+     */
     @Override
-    public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b) {
+    public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b) throws DividedByZeroException{
         /*questo metodo calcola la divisione tra due numeri complessi con la formula
         (a+ib)/(c+id)= (ac + bd)/(c^2+d^2)+ i[(bc - ad)/(c^2+d^2)]*/
         

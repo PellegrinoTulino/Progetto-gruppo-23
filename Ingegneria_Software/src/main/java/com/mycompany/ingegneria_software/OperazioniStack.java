@@ -10,10 +10,12 @@ package com.mycompany.ingegneria_software;
  * @author marco
  */
 /*Questa interfaccia fornisce i metodi per la manipolazione di uno stack*/
-public interface OperazioniStack {
-    public void stackClear();
-    public void stackDrop();
-    public void stackDup();
-    public void stackSwap();
-    public void stackOver();
+public interface OperazioniStack{
+    public void stackClear()  throws StackIsEmptyException; // può lanciare eccezione di stack vuoto perché chiama stack.pop()
+    public void stackDrop() throws StackIsEmptyException;
+    public void stackDup()throws StackIsEmptyException;
+    
+    //possono lanciare eccezione di stack vuoto perché chiama stack.pop()
+    public void stackSwap() throws NotEnoughElementException, StackIsEmptyException;
+    public void stackOver() throws NotEnoughElementException, StackIsEmptyException;
 }

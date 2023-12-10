@@ -45,7 +45,7 @@ public class NumeroComplesso {
         return (double)sqrt((double)pow(realPart,2) + (double)pow(imPart,2));
     }
     
-    public double phase(){
+    public double phase() throws PhaseOfZeroException{
         /*Questo metodo calcola la fase di un numero complesso per tutti i casi possibili*/
         
         //Caso in cui sia parte reale che parte immaginaria sono nulle

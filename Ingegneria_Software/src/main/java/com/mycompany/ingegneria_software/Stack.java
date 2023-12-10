@@ -32,7 +32,7 @@ public class Stack <T> {
         numElementi=stack.size(); //aggiorno numero elementi
     }
     
-    public T pop(){
+    public T pop() throws StackIsEmptyException{
         /*Questo metodo estrae l'ultimo elemento presente nello stack, rimuovendolo dallo stack*/
         if(stack.isEmpty()) throw new StackIsEmptyException("Impossibile eseguire una pop su stack vuoto");
         T elem = stack.removeLast();
@@ -40,7 +40,7 @@ public class Stack <T> {
         return elem;
     }
     
-    public T top(){
+    public T top() throws StackIsEmptyException{
         /*Questo metodo ritorna una copia dell'ultimo elemento presente nello stack*/
         if(stack.isEmpty()) throw new StackIsEmptyException("Impossibile eseguire una top su stack vuoto");
         return stack.getLast();

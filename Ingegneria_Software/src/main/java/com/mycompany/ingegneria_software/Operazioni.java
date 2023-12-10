@@ -14,7 +14,15 @@ public interface Operazioni {
     public NumeroComplesso somma(NumeroComplesso a, NumeroComplesso b);
     public NumeroComplesso differenza(NumeroComplesso a, NumeroComplesso b);
     public NumeroComplesso prodotto(NumeroComplesso a, NumeroComplesso b);
-    public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b);
+
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     * @throws DividedByZeroException
+     */
+    public NumeroComplesso divisione(NumeroComplesso a, NumeroComplesso b) throws DividedByZeroException;
     public NumeroComplesso radiceQuadrata(NumeroComplesso a);
     public NumeroComplesso invertSign(NumeroComplesso a);
 }
