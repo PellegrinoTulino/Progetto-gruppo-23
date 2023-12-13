@@ -14,11 +14,11 @@ import java.util.ListIterator;
  * @author ANDREA
  */
 public class CalcModule {
-    Stack<NumeroComplesso> stack;
-    OperazioniStack cmdStack;
+    private Stack<NumeroComplesso> stack;
+    private OperazioniStack cmdStack;
     
-    Operazioni operazione;
-    Variabili var;
+    private Operazioni operazione;
+    private Variabili var;
     
     
     public CalcModule(){
@@ -112,7 +112,7 @@ public class CalcModule {
         
         else{
             //input errato
-             throw new WrongInputException();
+             throw new WrongInputException("Input non valido");
         }
         
     }
@@ -131,7 +131,7 @@ public class CalcModule {
         if (operator.equals("+") | operator.equals("-") | operator.equals("*")| operator.equals("/")){
             //controlla numero operandi
             if(stack.getNumElementi() <2)
-                throw new NotEnoughElementsException();
+                throw new NotEnoughElementsException("Numero operandi insufficiente");
             
             //prelievo operandi
             NumeroComplesso num1 = stack.pop();
@@ -173,7 +173,7 @@ public class CalcModule {
         else if (operator.equals("sqrt") | operator.equals("+-")){
             //controlla numero operandi
             if(stack.getNumElementi() <1)
-                throw new NotEnoughElementsException();
+                throw new NotEnoughElementsException("Numero operandi insufficiente");
         
             //prelievo operando
             NumeroComplesso num = stack.pop();
@@ -193,7 +193,7 @@ public class CalcModule {
         
         //operatore non esistente
         else
-            throw new OperatorNotFoundException();
+            throw new OperatorNotFoundException("L'operatore usato non esiste");
     }
     
     //Data una lettere minuscola rapresentate una variabile e un carattere

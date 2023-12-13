@@ -245,12 +245,23 @@ class CalcController {
     //Al premere del tasto SEND, invia il contentuo della label inputOutput al modulo per il controllo dell'input
     private void handlerSend(ActionEvent e) {
         try {
-            module.inputControl(view.inputOutput.getText());
-            //aggiorna i numeri in valSalvati
-            numberInStack();
             
-            //svuota inputOutput per dare feedback ad utente che numero è stato inserito/operazione su variabile svolta
-            view.inputOutput.setText("");
+             //controllo se input vuoto
+             if(view.inputOutput.getText().equals("")){
+              Alert errorMsg = new Alert(AlertType.ERROR);
+                errorMsg.setHeaderText("Input Non Valido");
+                errorMsg.setContentText("Inserisci un valore da inviare.");
+                errorMsg.showAndWait();
+            }
+             else{
+                 module.inputControl(view.inputOutput.getText());
+                //aggiorna i numeri in valSalvati
+                numberInStack();
+            
+                 //svuota inputOutput per dare feedback ad utente che numero è stato inserito/operazione su variabile svolta
+                view.inputOutput.setText("");
+             
+             }
             
         } //lancia messaggio di errore in caso in cui l'input non sia valido
         catch (WrongInputException ex) {
@@ -273,7 +284,7 @@ class CalcController {
         catch(StackIsEmptyException ex){
             Alert errorMsg = new Alert(AlertType.ERROR);
             errorMsg.setHeaderText("Stack vuoto");
-            errorMsg.setContentText("L'operazione richiesta richiede almeno un valore nellos stack");
+            errorMsg.setContentText("L'operazione richiesta richiede almeno un valore nello stack");
             errorMsg.showAndWait();
         }
     }
@@ -292,11 +303,20 @@ class CalcController {
     private void handlerExecute(ActionEvent e) {
         try{
             
-            NumeroComplesso result = module.execute(view.inputOutput.getText());
-            view.inputOutput.setText(result.toString()); //mostra risultato a schermo
+            //controllo se input vuoto
+             if(view.inputOutput.getText().equals("")){
+              Alert errorMsg = new Alert(AlertType.ERROR);
+                errorMsg.setHeaderText("Nessun Operatore Inserito");
+                errorMsg.setContentText("Richiedi un'operazione.");
+                errorMsg.showAndWait();
+            }
+             else{
+                NumeroComplesso result = module.execute(view.inputOutput.getText());
+                view.inputOutput.setText(result.toString()); //mostra risultato a schermo
             
-            //aggiorna i numeri in valSalvati
-            numberInStack();
+                //aggiorna i numeri in valSalvati
+                numberInStack();
+             }
         }
         
         //lancia messaggio di errore in cui non è stata richiesta un'operazione supportata
