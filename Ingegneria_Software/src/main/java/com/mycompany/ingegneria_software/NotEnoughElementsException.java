@@ -9,22 +9,22 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class OperationException extends RuntimeException{
+public class NotEnoughElementsException extends StackException{
 
     /**
-     * Creates a new instance of <code>OperationException</code> without detail
-     * message.
+     * Creates a new instance of <code>NotEnoughElementException</code> without
+     * detail message.
      */
-    public OperationException() {
+    public NotEnoughElementsException() {
     }
 
     /**
-     * Constructs an instance of <code>OperationException</code> with the
+     * Constructs an instance of <code>NotEnoughElementException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public OperationException(String msg) {
+    public NotEnoughElementsException(String msg) {
         super(msg);
     }
 }

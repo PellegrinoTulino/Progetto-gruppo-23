@@ -45,15 +45,21 @@ public class Variabili {
     
     //data una lettera rappreentate una variabile e un valore
     //aumenta il valore di quella variabile dell valore dato
-    public void sommaVar(char x, NumeroComplesso value){
+    public void sommaVar(char x, NumeroComplesso value)  throws VariableNotInitializedException{
         int index = getIndex(x);
+        if(var[index] == null){
+            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata");
+        }
         var[index] = operazioni.somma(var[index],value);
     }
     
     //data una lettera rappreentate una variabile e un valore
     //diminuisce il valore di quella variabile dell valore dato
-    public void diffVar(char x, NumeroComplesso value){
+    public void diffVar(char x, NumeroComplesso value)  throws VariableNotInitializedException{
         int index = getIndex(x);
+        if(var[index] == null){
+            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata");
+        }
         var[index] = operazioni.differenza(var[index],value);
     }
 }

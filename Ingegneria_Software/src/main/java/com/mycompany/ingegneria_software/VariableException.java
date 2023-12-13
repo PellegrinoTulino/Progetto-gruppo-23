@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author ANDREA
  */
-public class VariableException extends Exception{
+public class VariableException extends RuntimeException{
 
     /**
      * Creates a new instance of <code>VariableException</code> without detail

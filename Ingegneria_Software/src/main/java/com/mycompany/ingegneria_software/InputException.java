@@ -7,24 +7,24 @@ package com.mycompany.ingegneria_software;
 
 /**
  *
- * @author marco
+ * @author ANDREA
  */
-public class OperationException extends RuntimeException{
+public class InputException extends Exception{
 
     /**
-     * Creates a new instance of <code>OperationException</code> without detail
+     * Creates a new instance of <code>InputException</code> without detail
      * message.
      */
-    public OperationException() {
+    public InputException() {
     }
 
     /**
-     * Constructs an instance of <code>OperationException</code> with the
-     * specified detail message.
+     * Constructs an instance of <code>InputException</code> with the specified
+     * detail message.
      *
      * @param msg the detail message.
      */
-    public OperationException(String msg) {
+    public InputException(String msg) {
         super(msg);
     }
 }

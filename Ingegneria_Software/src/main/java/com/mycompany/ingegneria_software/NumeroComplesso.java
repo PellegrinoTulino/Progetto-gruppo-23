@@ -20,6 +20,8 @@ public class NumeroComplesso {
     private double imPart; //indica parte immaginaria di un numero complesso
     
     public NumeroComplesso(double realPart, double imPart){
+        //arrotondamento a 2cifre decimali dei parametri
+        
         this.realPart=realPart;
         this.imPart=imPart;
     }
@@ -75,29 +77,33 @@ public class NumeroComplesso {
     public String toString() {
         /*Questo metodo calcola il formato stringa del numero complesso (a+ib)*/
         
+        //i numeri vengono stampati con 2cifre decimali
+        double realPartRounded = Math.ceil(this.realPart * 100) / 100;
+        double imPartRounded = Math.ceil(this.imPart * 100) / 100;
+        
         //controllo se sono nulle sia parte reale che parte immaginaria
-        if((realPart==0.0d) && (imPart==0.0d))
+        if((realPartRounded==0.0d) && (imPartRounded==0.0d))
             return Double.toString(0.0d);
         
         //caso in cui la parte immaginaria è nulla
-        if (imPart==0.0d) return Double.toString(realPart);
+        if (imPartRounded==0.0d) return Double.toString(realPartRounded);
         
         //caso in cui la parte reale è nulla
-        if(realPart==0.0d){
-            if(imPart == 1.0d) return "j" ;
-            if(imPart == -1.0d) return "-j";
+        if(realPartRounded==0.0d){
+            if(imPartRounded == 1.0d) return "j" ;
+            if(imPartRounded == -1.0d) return "-j";
             return Double.toString(imPart) + "j";
         }
         
         //parte immaginaria positiva
-        if(imPart>0.0d)
-            return (imPart == 1.0d) ? Double.toString(realPart) + "+" + "j" : 
-                    Double.toString(realPart) + "+" + Double.toString(imPart) + "j";
+        if(imPartRounded>0.0d)
+            return (imPartRounded == 1.0d) ? Double.toString(realPartRounded) + "+" + "j" : 
+                    Double.toString(realPartRounded) + "+" + Double.toString(imPartRounded) + "j";
         
         //parte immaginaria negativa
         else
-            return (imPart == -1.0d)? Double.toString(realPart) + "-" + "j" : 
-                    Double.toString(realPart) + Double.toString(imPart)+ 'j';
+            return (imPartRounded == -1.0d)? Double.toString(realPartRounded) + "-" + "j" : 
+                    Double.toString(realPartRounded) + Double.toString(imPartRounded)+ 'j';
         
     }
 }

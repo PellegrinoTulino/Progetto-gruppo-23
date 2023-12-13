@@ -1,42 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mycompany.ingegneria_software;
 
-import javafx.application.Application;
+import java.util.Arrays;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
+import javafx.scene.layout.VBox;
 
 /**
- * JavaFX CalcView
+ *
+ * @author ANDREA
  */
-public class CalcView extends Application {
-
-    @Override
-    public void start(Stage stage) {
-        //proprietà Stage
-        stage.setTitle("Calcolatrice gruppo23");
-        stage.setMinWidth(280);
-        stage.setMaxWidth(500);
-        stage.setMinHeight(380);
-        stage.setMaxHeight(400);
+public class CalcView extends VBox{
+    
+    //Elementi grafici-----------
+       public Label valSalvati;       //labels
+       public Label inputOutput;
         
+       public int NUMTASTIERINO;      //Tastierino numerico
+       public Button[] numeri;
         
-        //inizializza contenuto delle labels
-        Label valSalvati = new Label("TEST VAL Salvati");
-        Label inputOutput = new Label("TEST INPUTOUTPUt");
+       public int NUMOPERATORI; //Operatori
+       public Button[] operatori;
+        
+       public int NUMCDMSTACKBUTTONS; //Alterazione dello stack
+       public Button[] cmdStack;
+        
+       public int NUMPULSANTIAGGIUNTIVI;  //Altri pulanti (HELP, Lettere, SEND, CANC, ESEGUI)
+       public Button[] pulsantiAggiuntivi;
+        
        
+       public CalcView(){
+        //inizializza contenuto delle labels
+        valSalvati = new Label("TEST VAL Salvati");
+        inputOutput = new Label("TEST INPUTOUTPUt");
         
         //inizializza contenuto del tastierino numerico----------
-        int NUMTASTIERINO = 12;
+        NUMTASTIERINO = 12;
         int NUMCOLTASTIERINO = 3;
         
         String[] nums={
@@ -46,7 +54,6 @@ public class CalcView extends Application {
             "0",".","j"
         };
         
-        Button[] numeri;
         numeri = new Button[NUMTASTIERINO ];
         
         for(int i=0;i<NUMTASTIERINO-2;i++){
@@ -64,8 +71,8 @@ public class CalcView extends Application {
         buttonStyle(numeri); //associa stile
         
         //inzializzo contenuto tasti operatori---------------
-        int NUMOPERATORI = 8;
-        Button[] operatori = new Button[NUMOPERATORI];
+        NUMOPERATORI = 8;
+        operatori = new Button[NUMOPERATORI];
         
         String[] operatoriSign={
             "+", "-", "±",
@@ -91,8 +98,8 @@ public class CalcView extends Application {
         buttonStyle(operatori); //associa stile
         
         //inizializzo contenuto pulsanti di alterazione dello stack---------
-        int NUMCDMSTACKBUTTONS = 5;
-        Button[] cmdStack = new Button[NUMCDMSTACKBUTTONS ];
+        NUMCDMSTACKBUTTONS = 5;
+        cmdStack = new Button[NUMCDMSTACKBUTTONS ];
         
         String[] cmsStackSign={
             "clear", "drop","dup",
@@ -105,57 +112,39 @@ public class CalcView extends Application {
         
         //Disponi CmdStackButton in una linea
         HBox TastCmdStack = placeHBoxButton(cmdStack);
+        TastCmdStack.setAlignment(Pos.CENTER);
         buttonStyle(cmdStack); //associa stile
         
         //inizializzo contenuto pulsanti aggiuntivi----------------
             //HELP, LETTERS, SEND, CANC, ESEGUI 
-        int NUMPULSANTIAGGIUNTIVI = 5;
-        Button[] pulsantiAggiuntivi = new Button[NUMPULSANTIAGGIUNTIVI];
+        NUMPULSANTIAGGIUNTIVI = 6;
+        pulsantiAggiuntivi = new Button[NUMPULSANTIAGGIUNTIVI];
         
         String[] pulsantiAggiuntiviSign={
-            "HELP", "a-z", "↪","CANC" , "="
+            "HELP", "a-z", "↪","CANC" , "=", "DEL"
         };
         
         for(int i=0;i<NUMPULSANTIAGGIUNTIVI;i++){
            pulsantiAggiuntivi[i]= new Button(pulsantiAggiuntiviSign[i]);
         }
         buttonStyle(pulsantiAggiuntivi); //associa stile
+        pulsantiAggiuntivi[2].setMinWidth(50);//aumenta larghezza pulsante SEND
         
         
-        //Posizione gli elementi nella GUI
+        //Posizione gli elementi nella GUI-------------
         VBox GUI = placeElements(valSalvati, inputOutput, TastNum,TastOperatori,TastCmdStack,pulsantiAggiuntivi);
-        //Associa ad ogni elementi i suoi handlers
-        
-        
-        
-        
-        Scene scene = new Scene(GUI, 250, 360);
-        scene.setFill(Color.GRAY);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-    
-    //Determina la posizione delle labels nell'interfaccia grafica
-    public void placeLabels(){
-        //valSalvati + inpiutOutpu in VBOX=LABELS
-    }
-    
-    //assoccia ad ogni gruppo di elementi, il suo handler
-    public void initElements(){
-        
-    }
-    
+        this.getChildren().add(GUI);
+       }
+       
+       
     //aggiunge lo stile a un gruppo di bottoni passati
         //sfondo nero testo bianco
     public void buttonStyle(Button[] btn){
-        for( int i=0;i<btn.length;i++){
-            btn[i].setStyle("-fx-background-color: black; -fx-text-fill: white;"
+        for (Button btn1 : btn) {
+            btn1.setStyle("-fx-background-color: black; -fx-text-fill: white;"
                     + "-fx-border-color: lightgray;-fx-border-width: 2px;"
                     + "-fx-font-weight: bold");
+            btn1.setMinWidth(30);
         }
     }
     
@@ -176,6 +165,7 @@ public class CalcView extends Application {
     //Raggruppa i bottoni operatori
     public VBox placeOperator(GridPane grid, HBox line){
         VBox vertical = new VBox();
+        line.setAlignment(Pos.CENTER);
         vertical.getChildren().addAll(grid, line);
         
         return vertical;
@@ -185,21 +175,18 @@ public class CalcView extends Application {
     public HBox placeHBoxButton( Button[] btn){
         HBox line = new HBox();
         
-        for(int i=0;i<btn.length;i++){ 
-            line.getChildren().addAll(btn[i]);
-        }
+        line.getChildren().addAll(Arrays.asList(btn));
         
-        line.setAlignment(Pos.CENTER);
         line.setSpacing(5);
         return line;
     }
     
     
-    //Dipone gli elementi della GUI nella posizione corretta
-    
+    //Dispone gli elementi della GUI nella posizione corretta
     public VBox placeElements(Label valSalvati, Label output, GridPane TastNum, VBox operatori, HBox cmdStack, Button[] aggiuntivi){
         /*  aggiuntivi[0]=HELP, aggiuntivi[1]= PULSANTE LETTER, 
-            aggiuntivi[2]=SEND,aggiuntivi[3]=CANC , aggiuntivi[4]= ESEGUI */
+            aggiuntivi[2]=SEND,aggiuntivi[3]=CANC , aggiuntivi[4]= ESEGUI 
+            aggiuntivi [5]=DELETE*/
         
         
         //parte alta calcolatrice-------------
@@ -210,8 +197,6 @@ public class CalcView extends Application {
             |                    |
         
         */
-        
-        
         VBox upperPart = new VBox();
         
         //le labels appaiono su uno sfondo squadrato nero
@@ -225,15 +210,17 @@ public class CalcView extends Application {
         labelBox.setSpacing(5);
         labelBox.setPadding(new Insets(5,5,5,5));
         
-        upperPart.getChildren().addAll( aggiuntivi[0], labelBox);
+        //unione blocco labels e di HELLP in upper part
+        upperPart.getChildren().addAll( aggiuntivi[0], labelBox); //aggiuntivi[0]=HELP
         upperPart.setAlignment(Pos.CENTER_RIGHT);
         upperPart.setSpacing(5);
         upperPart.setPadding(new Insets(10,10,10,10));
         
         //parte bassa calcolatrice---------------
         /*
+            |  LETTER        SEND  |
             |     |CMD STACK|      |
-            |  LETTER        CANC  |
+            |           DEL  CANC  |
             |  _____     _________ |
             | |TAST |   |Operatori||
             | |NUM__|   |_________||
@@ -242,22 +229,28 @@ public class CalcView extends Application {
         */
         VBox bottomPart = new VBox();
         
-        //sezione Lettere e Canc
-        BorderPane lettCanc = new BorderPane();
-        lettCanc.setPadding( new Insets(10,10,10,10));
-        lettCanc.setLeft(aggiuntivi[1]);
-        lettCanc.setRight(aggiuntivi[3]);
+        //sezione Lettere e Send
+        BorderPane lettSend = new BorderPane();
+        lettSend.setPadding( new Insets(10,10,10,10));
+        lettSend.setLeft(aggiuntivi[1]); //aggiuntivi[1]=pulsante lettere
+        lettSend.setRight(aggiuntivi[2]); //aggiuntivi[2]=pulsante Send
         
         //sezione operatori ed Esegui
-        VBox opEsegui = new VBox();
-        HBox esegui = new HBox (aggiuntivi[4]);
+        VBox OpEsegui = new VBox();
+        aggiuntivi[4].setMinWidth(100); //aggiuntivi[4]=Esegui
+        HBox esegui = new HBox (aggiuntivi[4]);  //aggiuntivi[4]=Esegui
                 esegui.setAlignment(Pos.CENTER);
-        opEsegui.getChildren().addAll(operatori, esegui);
-        opEsegui.setSpacing(5);
+        OpEsegui.getChildren().addAll(operatori, esegui);
+        OpEsegui.setSpacing(5);
         
-        aggiuntivi[4].setMinWidth(100);
+        //sezione CANC e DEL
+        HBox delCanc = new HBox (aggiuntivi[5], aggiuntivi[3]);  //aggiuntivi[3]=CANC. aggiuntivi[5]=CANC
+                delCanc.setAlignment(Pos.CENTER_RIGHT);
+                delCanc.setSpacing(5);
+                delCanc.setPadding(new Insets(10,10,10,10));
         
-        bottomPart.getChildren().addAll(cmdStack, lettCanc, new BorderPane(null,null,opEsegui, null, TastNum)); //opEsegui a destra, TastNum a sinistra
+        //unione vari elementi in bottomPart
+        bottomPart.getChildren().addAll(lettSend, cmdStack, delCanc, new BorderPane(null,null,OpEsegui, null, TastNum)); //OpEsegui a destra, TastNum a sinistra
         bottomPart.setSpacing(5);
         
         //Unione parte inferiore e superiore------------

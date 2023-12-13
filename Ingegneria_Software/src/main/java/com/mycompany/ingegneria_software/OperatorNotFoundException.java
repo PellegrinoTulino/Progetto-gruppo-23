@@ -7,24 +7,24 @@ package com.mycompany.ingegneria_software;
 
 /**
  *
- * @author marco
+ * @author ANDREA
  */
-public class NotEnoughElementException extends StackException{
+public class OperatorNotFoundException extends OperationException{
 
     /**
-     * Creates a new instance of <code>NotEnoughElementException</code> without
+     * Creates a new instance of <code>OperatorNotFoundException</code> without
      * detail message.
      */
-    public NotEnoughElementException() {
+    public OperatorNotFoundException() {
     }
 
     /**
-     * Constructs an instance of <code>NotEnoughElementException</code> with the
+     * Constructs an instance of <code>OperatorNotFoundException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public NotEnoughElementException(String msg) {
+    public OperatorNotFoundException(String msg) {
         super(msg);
     }
 }

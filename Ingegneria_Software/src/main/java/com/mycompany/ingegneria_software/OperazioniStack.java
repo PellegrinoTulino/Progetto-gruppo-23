@@ -16,6 +16,6 @@ public interface OperazioniStack{
     public void stackDup()throws StackIsEmptyException;
     
     //possono lanciare eccezione di stack vuoto perché chiama stack.pop()
-    public void stackSwap() throws NotEnoughElementException, StackIsEmptyException;
-    public void stackOver() throws NotEnoughElementException, StackIsEmptyException;
+    public void stackSwap() throws NotEnoughElementsException, StackIsEmptyException;
+    public void stackOver() throws NotEnoughElementsException, StackIsEmptyException;
 }

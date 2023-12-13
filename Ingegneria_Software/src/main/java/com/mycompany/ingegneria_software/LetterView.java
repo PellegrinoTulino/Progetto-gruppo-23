@@ -5,37 +5,26 @@
  */
 package com.mycompany.ingegneria_software;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 /**
  *
  * @author ANDREA
  */
-public class LetterView extends Application {
+public class LetterView  extends GridPane{
+    public BorderPane root;
+    public int NUMLETTERS;
+    Button[] letters;
     
-    @Override
-    public void start(Stage primaryStage) {
-        //proprietà stage
-        primaryStage.setTitle("Lettera gruppo23");
-        primaryStage.setMinWidth(500);
-        primaryStage.setMaxWidth(800);
-        primaryStage.setMinHeight(350);
-        primaryStage.setMaxHeight(400);
-        
-        BorderPane root = new BorderPane();
+    //crea una finestra Letter View
+    public LetterView(){
+       root = new BorderPane();
         //Label "INSERISCI LETTERA"
         Label lb = new Label("INSERISCI LETTERA");
         lb.setStyle("-fx-text-color: black; -fx-font-weight: bold;");
@@ -47,8 +36,8 @@ public class LetterView extends Application {
         
         //Creazione pulsanti e loro testo
             //i pulsanti contengono lettere latine minuscole
-        int NUMLETTERS = 26;
-        Button[] letters = new Button[NUMLETTERS];
+        NUMLETTERS = 26;
+        letters = new Button[NUMLETTERS];
         for (int i=0; i<NUMLETTERS;i++){
             letters[i] = new Button(Character.toString ((char) (i+97))); // "a" ascii code è 97
         }
@@ -68,22 +57,13 @@ public class LetterView extends Application {
         lettersPad.setHgap(5);
         lettersPad.setAlignment(Pos.CENTER);
         
-        root.setCenter(lettersPad);
+        root.setCenter(lettersPad);  
+        this.getChildren().add(root);
         
-        Scene scene = new Scene(root, 300, 250);
-        scene.setFill(Color.GRAY);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
     }
     
-     //aggiunge lo stile a un gruppo di bottoni passati
+    
+    //aggiunge lo stile a un gruppo di bottoni passati
         //sfondo nero testo bianco
     public void buttonStyle(Button[] btn){
         for( int i=0;i<btn.length;i++){
@@ -92,5 +72,4 @@ public class LetterView extends Application {
                     + "-fx-font-weight: bold");
         }
     }
-    
 }

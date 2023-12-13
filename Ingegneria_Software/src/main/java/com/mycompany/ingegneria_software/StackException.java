@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author marco
  */
-public class StackException extends Exception{
+public class StackException extends RuntimeException{
 
     /**
      * Creates a new instance of <code>StackException</code> without detail
