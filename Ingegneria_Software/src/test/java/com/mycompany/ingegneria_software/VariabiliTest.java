@@ -89,7 +89,7 @@ public void testSetvar()throws VariableNotInitializedException{
         
         NumeroComplesso num= new NumeroComplesso(2,2);
          VariableNotInitializedException ex = assertThrows(VariableNotInitializedException.class, () -> v.sommaVar('x',num));
-        assertEquals("La variabile x non è stata inizializzata",ex.getMessage());
+        assertEquals("La variabile x non è stata inizializzata, impossibile efetturne la somma",ex.getMessage());
     }
     
     @Test
@@ -114,6 +114,6 @@ public void testSetvar()throws VariableNotInitializedException{
         
         NumeroComplesso num= new NumeroComplesso(2,2);
         VariableNotInitializedException ex = assertThrows(VariableNotInitializedException.class, () -> v.diffVar('z',num));
-        assertEquals("La variabile z non è stata inizializzata",ex.getMessage());
+        assertEquals("La variabile z non è stata inizializzata, impossibile efetturne la differenza",ex.getMessage());
     }
 }

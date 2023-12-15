@@ -295,7 +295,9 @@ public class CalcModuleTest {
     /* INPUT CONTROL
     OPERAZIONI SU VARIABILI //la correttezza delle operazioni su varibile è verificata dai Test su Variabili
     TEST_op1: estrazione
-    TEST_op2: importazione
+                            //con lo stack vuoto, importazione; sommaVar e diffVar lancerebbero tutte la stessa eccezione
+                            //impedendo di distinguerle
+    TEST_op2: importazione  
     TEST_op3: sommaVar
     TEST_op4: diffVar
     
@@ -317,27 +319,47 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op2() throws Exception {
-        String input =  ">j";
+        //Inizializzazione stack
+        String num = "4";
+        module.inputControl(num);
         
-        //stack vuoto -> eccezione
-        StackIsEmptyException ex = assertThrows(StackIsEmptyException.class, () -> module.inputControl(input));
-        assertEquals("Impossibile eseguire una top su stack vuoto", ex.getMessage()); 
+        //richiesta di importazione su variabile
+        String input =  ">j";
+        module.inputControl(input);
+        
+        //esporto il valore dij per verificarlo
+        //se j = 4 -> test successo
+        input =  "<j";
+        module.inputControl(input);
+        NumeroComplesso[] out=module.extractNElementFromStack(1);
+        
+        assertEquals(4,out[0].getRealPart());
     }
     @Test
     public void testInputControl_op3() throws Exception {
+        //Inizializzazione stack
+        String num = "4";
+        module.inputControl(num);
+        
+        //richiesta di importazione su variabile
         String input =  "+j";
         
         //variabile non inizializzata -> eccezione
-        StackIsEmptyException ex = assertThrows(StackIsEmptyException.class, () -> module.inputControl(input));
-        assertEquals("Impossibile eseguire una top su stack vuoto", ex.getMessage()); 
+        VariableNotInitializedException ex = assertThrows(VariableNotInitializedException.class, () -> module.inputControl(input));
+        assertEquals("La variabile j non è stata inizializzata, impossibile efetturne la somma", ex.getMessage()); 
     }
     @Test
     public void testInputControl_op4() throws Exception {
+        //Inizializzazione stack
+        String num = "4";
+        module.inputControl(num);
+        
+        //richiesta di importazione su variabile
         String input =  "-j";
         
         //variabile non inizializzata -> eccezione
-        StackIsEmptyException ex = assertThrows(StackIsEmptyException.class, () -> module.inputControl(input));
-        assertEquals("Impossibile eseguire una top su stack vuoto", ex.getMessage()); 
+        VariableNotInitializedException ex = assertThrows(VariableNotInitializedException.class, () -> module.inputControl(input));
+        assertEquals("La variabile j non è stata inizializzata, impossibile efetturne la differenza", ex.getMessage()); 
     }
     @Test
     public void testInputControl_op5() throws Exception {
@@ -500,6 +522,9 @@ public class CalcModuleTest {
         NumeroComplesso[] num = module.extractNElementFromStack(2);
         assertEquals(num[0].getRealPart(), comp.getRealPart());
         assertEquals(num[0].getImPart(), comp.getImPart());
+        
+        assertEquals(num[1].getRealPart(), comp.getRealPart());
+        assertEquals(num[1].getImPart(), comp.getImPart());
     }
     
     @Test
@@ -528,6 +553,26 @@ public class CalcModuleTest {
         
         
         module.cmdStack("swap");
+        
+        //controllo se i due numeri invertiti di posto
+        NumeroComplesso[] num = module.extractNElementFromStack(2);
+        assertEquals(num[0].getRealPart(), comp1.getRealPart());
+        assertEquals(num[0].getImPart(), comp1.getImPart());
+        
+        assertEquals(num[1].getRealPart(), comp2.getRealPart());
+        assertEquals(num[1].getImPart(), comp2.getImPart());
+    }
+    
+    @Test
+    public void testCmdStack5() throws WrongInputException {
+        //inserimento valori in stack
+        module.inputControl("1+2j");
+        module.inputControl("0+0j");
+        NumeroComplesso comp1 = new NumeroComplesso(1,2);
+        NumeroComplesso comp2 = new NumeroComplesso(0,0);
+        
+        
+        module.cmdStack("over");
         
         //controllo se i due numeri invertiti di posto
         NumeroComplesso[] num = module.extractNElementFromStack(2);

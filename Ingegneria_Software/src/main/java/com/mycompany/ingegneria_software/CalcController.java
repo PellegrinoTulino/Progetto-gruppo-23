@@ -160,7 +160,8 @@ class CalcController {
             errorMsg.setContentText("NUMERI\nComponi un numero complesso e premi INVIO per salvarlo nella calcolatrice."
                     + "\nPuoi inserire anche numeri reali e complessi puri.\n"
                     + " \"j\" non è un numero corretto, cosiccome \".5\" al posto di 0.5\n"
-                    + "(NOTA: \"-j\" e \"+j\" non sono numeri corretti, ma operazioni sulla variabila j)\n\n"
+                    + "(NOTA: \"-j\" e \"+j\" non sono numeri corretti, ma operazioni sulla variabila j.\n"
+                    + "Per inserirli digita 1j, +1j e -1j)\n\n"
                     
                     + "OPERAZIONI\n Salva gli operandi nella calcolatrice, poi premi un operatore e\n schiaccia ESEGUI. "
                     + "Gli operandi veranno rimossi dalla calcolatrice e il risultato salvato.\n\n"

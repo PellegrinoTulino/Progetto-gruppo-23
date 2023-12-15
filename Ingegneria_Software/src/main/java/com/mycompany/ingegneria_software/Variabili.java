@@ -48,7 +48,7 @@ public class Variabili {
     public void sommaVar(char x, NumeroComplesso value)  throws VariableNotInitializedException{
         int index = getIndex(x);
         if(var[index] == null){
-            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata");
+            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata, impossibile efetturne la somma");
         }
         var[index] = operazioni.somma(var[index],value);
     }
@@ -58,7 +58,7 @@ public class Variabili {
     public void diffVar(char x, NumeroComplesso value)  throws VariableNotInitializedException{
         int index = getIndex(x);
         if(var[index] == null){
-            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata");
+            throw new VariableNotInitializedException("La variabile " + x + " non è stata inizializzata, impossibile efetturne la differenza");
         }
         var[index] = operazioni.differenza(var[index],value);
     }
