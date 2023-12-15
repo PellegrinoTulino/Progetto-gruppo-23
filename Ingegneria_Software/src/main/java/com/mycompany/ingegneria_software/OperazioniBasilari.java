@@ -70,7 +70,7 @@ public class OperazioniBasilari implements Operazioni{
         double module = sqrt(a.module());
         double phase = (double)(a.phase()/2.0d); // (fase di a + 2kπ)/2 
         
-        if(phase==Math.PI/2) 
+        if(phase==Math.PI/2 | phase==-1.0d*Math.PI/2) 
             return new NumeroComplesso(0, module*sin(phase)); //cos(PI/2) in java restituisce un valore leggermente diverso da zero
         
         return new NumeroComplesso(module*cos(phase), module*sin(phase));
