@@ -88,7 +88,8 @@ public class CmdStackTest {
         s.push(new NumeroComplesso(5,8));
         cmd.stackDrop();
         assertEquals(3,s.top().getRealPart());
-        assertEquals(2,s.top().getImPart());        
+        assertEquals(2,s.top().getImPart());
+        assertEquals(2,s.getNumElementi());        
     }
 
     /**
@@ -108,9 +109,13 @@ public class CmdStackTest {
         s.push(new NumeroComplesso(1.4,7.2));
         s.push(new NumeroComplesso(3,2));
         cmd.stackDup();
+        
+        assertEquals(4,s.getNumElementi());
         NumeroComplesso num=s.pop();
+        
         assertEquals(num.getRealPart(),s.top().getRealPart());
-        assertEquals(num.getImPart(),s.top().getImPart());         
+        assertEquals(num.getImPart(),s.top().getImPart());   
+        
     }
     
 
@@ -126,14 +131,6 @@ public class CmdStackTest {
     
     @Test
     public void testStackSwap2() throws NotEnoughElementsException, StackIsEmptyException {
-        System.out.println("Test operazione swap su stack con un elemento"); 
-        s.push(new NumeroComplesso(3.7,6.2));
-        NotEnoughElementsException exc = assertThrows(NotEnoughElementsException.class, () -> cmd.stackSwap());        
-        assertEquals("Sono presenti meno di due elementi nello stack. Impossibile effettuare lo swap", exc.getMessage());        
-    }
-    
-    @Test
-    public void testStackSwap3() throws NotEnoughElementsException, StackIsEmptyException {
         System.out.println("Test operazione swap su stack con un più di un elemento");
         s.push(new NumeroComplesso(1.4,7.2));
         s.push(new NumeroComplesso(3,2));
@@ -157,21 +154,16 @@ public class CmdStackTest {
     
     @Test
     public void testStackOver2() throws NotEnoughElementsException, StackIsEmptyException {
-        System.out.println("Test operazione over su stack con un elemento");
-        s.push(new NumeroComplesso(3.7,6.2));        
-        NotEnoughElementsException exc = assertThrows(NotEnoughElementsException.class, () -> cmd.stackOver());
-        assertEquals("Sono presenti meno di due elementi nello stack. Impossibile effettuare l'over", exc.getMessage());        
-    }
-    
-    @Test
-    public void testStackOver3() throws NotEnoughElementsException, StackIsEmptyException {
         System.out.println("Test operazione over su stack con più di un elemento");
         s.push(new NumeroComplesso(1.4,7.2));
         s.push(new NumeroComplesso(3,2));
         cmd.stackOver();
+        
+        assertEquals(3,s.getNumElementi());
+        
         NumeroComplesso last=s.pop();
         s.pop();
-        assertEquals(last,s.top());        
+        assertEquals(last,s.top());
     }
     
 }

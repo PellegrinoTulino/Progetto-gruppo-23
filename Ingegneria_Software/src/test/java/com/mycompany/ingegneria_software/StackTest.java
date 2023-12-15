@@ -73,6 +73,9 @@ public class StackTest {
         s.push(new NumeroComplesso(1.0,1.0));
         assertEquals(1.0, s.top().getRealPart());
         assertEquals(1.0, s.top().getImPart());
+        
+        //controllo aumento numero elemenit
+        assertEquals(1,s.getNumElementi());
     }
 
     /**
@@ -92,7 +95,10 @@ public class StackTest {
         s.push(new NumeroComplesso(9.3,2.9));
         NumeroComplesso num= s.pop();
         assertEquals(9.3, num.getRealPart());
-        assertEquals(2.9, num.getImPart());        
+        assertEquals(2.9, num.getImPart());  
+        
+        //elemento rimosso -> diminuisce numero elemento nello stack
+        assertEquals(1,s.getNumElementi());
     }
 
     /**
@@ -108,9 +114,13 @@ public class StackTest {
     @Test
     public void testTop2() throws StackIsEmptyException {
         System.out.println("Test operazione top su stack non vuoto");
+        s.push(new NumeroComplesso(8.6,5.8));
         s.push(new NumeroComplesso(2.0,6.0));
         assertEquals(2.0, s.top().getRealPart());
-        assertEquals(6.0, s.top().getImPart());        
+        assertEquals(6.0, s.top().getImPart()); 
+        
+        //elemento copiato -> diminuisce numero elemento nello stack
+        assertEquals(2,s.getNumElementi());
     }
 
     /**

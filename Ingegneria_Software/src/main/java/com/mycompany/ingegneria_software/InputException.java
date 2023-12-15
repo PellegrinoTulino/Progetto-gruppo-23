@@ -9,7 +9,7 @@ package com.mycompany.ingegneria_software;
  *
  * @author ANDREA
  */
-public class InputException extends Exception{
+public class InputException extends RuntimeException{
 
     /**
      * Creates a new instance of <code>InputException</code> without detail

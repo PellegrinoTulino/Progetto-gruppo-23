@@ -41,10 +41,6 @@ class CalcController {
         
     }
     
-    public void initBindings(){
-    
-    }
-    
     //Aggiungi il contenuto del pulsante premuto sulla label inputOutput
     private void buttonPressed(ActionEvent e){
         Button btn = (Button) e.getSource();
@@ -163,7 +159,8 @@ class CalcController {
             errorMsg.setHeaderText("Informazioni sull'uso");
             errorMsg.setContentText("NUMERI\nComponi un numero complesso e premi INVIO per salvarlo nella calcolatrice."
                     + "\nPuoi inserire anche numeri reali e complessi puri.\n"
-                    + " \"j\"; \"-j\" e \"+j\" non sono numeri corretti, cosiccome \".5\" al posto di 0.5\n\n"
+                    + " \"j\" non è un numero corretto, cosiccome \".5\" al posto di 0.5\n"
+                    + "(NOTA: \"-j\" e \"+j\" non sono numeri corretti, ma operazioni sulla variabila j)\n\n"
                     
                     + "OPERAZIONI\n Salva gli operandi nella calcolatrice, poi premi un operatore e\n schiaccia ESEGUI. "
                     + "Gli operandi veranno rimossi dalla calcolatrice e il risultato salvato.\n\n"
