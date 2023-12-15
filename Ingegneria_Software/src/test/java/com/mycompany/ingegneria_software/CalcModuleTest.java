@@ -83,6 +83,7 @@ public class CalcModuleTest {
     */
     @Test
     public void testInputControl_numl() throws Exception {
+        System.out.println("Test inputControl() reale senza segno; Immaginaria mancante");
         String input =  "2.5";
         NumeroComplesso num = new NumeroComplesso(2.5,0);
         module.inputControl(input);
@@ -93,6 +94,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num2() throws Exception {
+        System.out.println("Test inputControl() reale senza segno; Immaginaria positiva");
         String input =  "2.5+3j";
         NumeroComplesso num = new NumeroComplesso(2.5,3);
         module.inputControl(input);
@@ -104,6 +106,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num3() throws Exception {
+        System.out.println("Test inputControl() reale senza segno; Immaginaria negativa");
         String input =  "2.5-3j";
         NumeroComplesso num = new NumeroComplesso(2.5,-3);
         module.inputControl(input);
@@ -115,6 +118,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num4() throws Exception {
+        System.out.println("Test inputControl() reale segno +; Immaginaria mancante");
         String input =  "+2.5";
         NumeroComplesso num = new NumeroComplesso(2.5,0);
         module.inputControl(input);
@@ -126,6 +130,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num5() throws Exception {
+        System.out.println("Test inputControl() reale segno +; Immaginaria positiva");
         String input =  "+2.5+3j";
         NumeroComplesso num = new NumeroComplesso(2.5,3);
         module.inputControl(input);
@@ -137,6 +142,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num6() throws Exception {
+        System.out.println("Test inputControl() reale segno +; Immaginaria negativa");
         String input =  "+2.5-3j";
         NumeroComplesso num = new NumeroComplesso(2.5,-3);
         module.inputControl(input);
@@ -148,6 +154,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num7() throws Exception {
+        System.out.println("Test inputControl() reale segno -; Immaginaria mancante");
         String input =  "-2.5";
         NumeroComplesso num = new NumeroComplesso(-2.5,0);
         module.inputControl(input);
@@ -159,6 +166,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num8() throws Exception {
+        System.out.println("Test inputControl() reale segno -; Immaginaria positiva");
         String input =  "-2.5+3j";
         NumeroComplesso num = new NumeroComplesso(-2.5,3);
         module.inputControl(input);
@@ -170,6 +178,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num9() throws Exception {
+        System.out.println("Test inputControl() reale segno -; Immaginaria negativa");
         String input =  "-2.5-3j";
         NumeroComplesso num = new NumeroComplesso(-2.5,-3);
         module.inputControl(input);
@@ -181,6 +190,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num10() throws Exception {
+        System.out.println("Test inputControl() reale mancante; Immaginaria senza segno");
         String input =  "3j";
         NumeroComplesso num = new NumeroComplesso(0,3);
         module.inputControl(input);
@@ -192,6 +202,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num11() throws Exception {
+        System.out.println("Test inputControl() reale mancante; Immaginaria segno +");
         String input =  "+3j";
         NumeroComplesso num = new NumeroComplesso(0,3);
         module.inputControl(input);
@@ -203,6 +214,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num12() throws Exception {
+        System.out.println("Test inputControl() reale mancante; Immaginaria segno -");
         String input =  "-3j";
         NumeroComplesso num = new NumeroComplesso(0,-3);
         module.inputControl(input);
@@ -214,6 +226,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num13() throws Exception {
+        System.out.println("Test inputControl() molteplici punti consecutivi");
         String input =  "2..1";
         
         //input sbagliato -> mostra messaggio errore
@@ -222,6 +235,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num14() throws Exception {
+        System.out.println("Test inputControl() numero formato xx.x.xx");
         String input =  "2.321.2j";
         
         //input sbagliato -> mostra messaggio errore
@@ -230,6 +244,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num15() throws Exception {
+        System.out.println("Test inputControl() parte reale iniziante per \".\"");
         String input =  ".5";
         
         //input sbagliato -> mostra messaggio errore
@@ -238,6 +253,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num16() throws Exception {
+        System.out.println("Test inputControl() parte immaginaria iniziante per \".\"");
         String input =  "2+.2j";
         
         //input sbagliato -> mostra messaggio errore
@@ -246,6 +262,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num17() throws Exception {
+        System.out.println("Test inputControl() j");
         String input =  "j";
         
         //input sbagliato -> mostra messaggio errore
@@ -254,6 +271,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num18() throws Exception {
+        System.out.println("Test inputControl() parte immaginaria senza j");
         String input =  "2+2.66";
         
         //input sbagliato -> mostra messaggio errore
@@ -262,6 +280,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num19() throws Exception {
+        System.out.println("Test inputControl() molteplici parti reali");
         String input =  "2.3+2+3j";
         
         //input sbagliato -> mostra messaggio errore
@@ -270,6 +289,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num20() throws Exception {
+        System.out.println("Test inputControl() molteplici parti immaginarie");
         String input =  "2.3+2j+4.5j";
         
         //input sbagliato -> mostra messaggio errore
@@ -278,6 +298,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num21() throws Exception {
+        System.out.println("Test inputControl() parte reale con più segni");
         String input =  "++2.3+4.5j";
         
         //input sbagliato -> mostra messaggio errore
@@ -286,6 +307,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_num22() throws Exception {
+        System.out.println("Test inputControl() parte immaginaria con più segni");
         String input =  "+2.3+-4.5j";
         
         //input sbagliato -> mostra messaggio errore
@@ -311,6 +333,7 @@ public class CalcModuleTest {
     */
     @Test
     public void testInputControl_op1() throws Exception {
+        System.out.println("Test inputControl() esportazione di variabile");
         String input =  "<j";
         
         //variabile non inizializzata -> eccezione
@@ -319,6 +342,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op2() throws Exception {
+        System.out.println("Test inputControl() importazione di variabile");
         //Inizializzazione stack
         String num = "4";
         module.inputControl(num);
@@ -337,6 +361,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op3() throws Exception {
+        System.out.println("Test inputControl() somma di variabile");
         //Inizializzazione stack
         String num = "4";
         module.inputControl(num);
@@ -350,6 +375,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op4() throws Exception {
+        System.out.println("Test inputControl() differenza di variabile");
         //Inizializzazione stack
         String num = "4";
         module.inputControl(num);
@@ -363,6 +389,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op5() throws Exception {
+        System.out.println("Test inputControl() operaztione variabile: operatore sbagliato");
         String input =  "*j";
         
         //input sbagliato -> mostra messaggio errore
@@ -371,6 +398,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op6() throws Exception {
+        System.out.println("Test inputControl() operaztione variabile: variabile sbagliata/assente");
         String input =  ">";
         
         //input sbagliato -> mostra messaggio errore
@@ -379,6 +407,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op7() throws Exception {
+        System.out.println("Test inputControl() operaztione variabile: molteplici operatori");
         String input =  ">+j";
         
         //input sbagliato -> mostra messaggio errore
@@ -387,6 +416,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_op8() throws Exception {
+        System.out.println("Test inputControl() operaztione variabile: molteplici variabili");
         String input =  ">jx";
         
         //input sbagliato -> mostra messaggio errore
@@ -395,6 +425,7 @@ public class CalcModuleTest {
     }
     @Test
     public void testInputControl_ex1() throws Exception {
+        System.out.println("Test inputControl() input sbagliato generico");
         String input =  "*/4";
         
         //input sbagliato -> mostra messaggio errore
@@ -408,7 +439,9 @@ public class CalcModuleTest {
     /*
     EXECUTE     //la corretteza delle operazioni è stata verificata con i test di OperazioniBasilari
     TEST1: operatore binario con 2 o più operandi nello stack
+        TEST1.1: somma; TEST1.2: differenza; TEST1.3: prodotto; TEST1.4: divisione
     TEST2: operatore unario con 1 o più operandi nello stack
+        TEST2.1: invertSign; TEST2.2: radiceQuadrata
     
     TEST3: operatore binario con meno di 2 operandi nello stack
     TEST4: operatore unario con stack vuoto
@@ -417,7 +450,8 @@ public class CalcModuleTest {
     TEST6: operatore non corretto    
     */
     @Test
-    public void testExecute1() throws WrongInputException {
+    public void testExecute1_1() throws WrongInputException {
+        System.out.println("Test execute() somma con 2 o più operandi nello stack");
         //inserimento valori in stack
         module.inputControl("0+2j");
         module.inputControl("2+0j");
@@ -426,14 +460,71 @@ public class CalcModuleTest {
         //esegui operazione
         module.execute("+");
         
-        //se la sommaè stata eseguita si trova in cima allo stack
-        NumeroComplesso out[] = module.extractNElementFromStack(1);
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
         assertEquals(out[0].getRealPart(),num.getRealPart());
         assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(1,out.length); //verifica se operandi rimossi dallo stack, leggendo il numero di elementi nello stack
+    }
+    @Test
+    public void testExecute1_2() throws WrongInputException {
+        System.out.println("Test execute() dderenza con 2 o più operandi nello stack");
+        //inserimento valori in stack
+        module.inputControl("0+2j");
+        module.inputControl("2+0j");
+        NumeroComplesso num = new NumeroComplesso(-2,2);
+        
+        //esegui operazione
+        module.execute("-");
+        
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
+        assertEquals(out[0].getRealPart(),num.getRealPart());
+        assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(1,out.length); //verifica se operandi rimossi dallo stack, leggendo il numero di elementi nello stack
+    }
+    @Test
+    public void testExecute1_3() throws WrongInputException {
+        System.out.println("Test execute() prodotto con 2 o più operandi nello stack");
+        //inserimento valori in stack
+        module.inputControl("0+2j");
+        module.inputControl("2+0j");
+        NumeroComplesso num = new NumeroComplesso(0,4);
+        
+        //esegui operazione
+        module.execute("*");
+        
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
+        assertEquals(out[0].getRealPart(),num.getRealPart());
+        assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(1,out.length); //verifica se operandi rimossi dallo stack, leggendo il numero di elementi nello stack
+    }
+    @Test
+    public void testExecute1_4() throws WrongInputException {
+        System.out.println("Test execute() divisione con 2 o più operandi nello stack");
+        //inserimento valori in stack
+        module.inputControl("0+2j");
+        module.inputControl("2+0j");
+        NumeroComplesso num = new NumeroComplesso(0,1);
+        
+        //esegui operazione
+        module.execute("/");
+        
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
+        assertEquals(out[0].getRealPart(),num.getRealPart());
+        assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(1,out.length); //verifica se operandi rimossi dallo stack, leggendo il numero di elementi nello stack
     }
     
     @Test
-    public void testExecute2() throws WrongInputException {
+    public void testExecute2_1() throws WrongInputException {
+        System.out.println("Test execute() invertSign con stack non vuoto");
         //inserimento valori in stack
         module.inputControl("0+2j");
         module.inputControl("2+2j");
@@ -442,14 +533,35 @@ public class CalcModuleTest {
         //esegui operazione
         module.execute("+-");
         
-        //se la sommaè stata eseguita si trova in cima allo stack
-        NumeroComplesso out[] = module.extractNElementFromStack(1);
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
         assertEquals(out[0].getRealPart(),num.getRealPart());
         assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(2,out.length); //verifica se operando rimosso dallo stack, leggendo il numero di elementi nello stack
+    }
+    @Test
+    public void testExecute2_2() throws WrongInputException {
+        System.out.println("Test execute() radiceQuadrata con stack non vuoto");
+        //inserimento valori in stack
+        module.inputControl("0+2j");
+        module.inputControl("9+0j");
+        NumeroComplesso num = new NumeroComplesso(3,0);
+        
+        //esegui operazione
+        module.execute("sqrt");
+        
+        //se l'operazione è stata eseguita si trova in cima allo stack
+        NumeroComplesso out[] = module.extractNElementFromStack(10);
+        assertEquals(out[0].getRealPart(),num.getRealPart());
+        assertEquals(out[0].getImPart(),num.getImPart());
+        
+        assertEquals(2,out.length); //verifica se operando rimosso dallo stack, leggendo il numero di elementi nello stack
     }
     
     @Test
     public void testExecute3() throws WrongInputException {
+        System.out.println("Test execute() operatore binario senza abbastanza operandi in stack");
         //inserimento valori in stack
         module.inputControl("2+2j");
         
@@ -460,6 +572,7 @@ public class CalcModuleTest {
     
     @Test
     public void testExecute4() throws WrongInputException {
+        System.out.println("Test execute() operatore unario senza abbastanza operandi in stack");
         //non abbastanza elementi -> eccezione
         NotEnoughElementsException assertThrows = assertThrows(NotEnoughElementsException.class,() ->  module.execute("+-"));
         assertEquals("Numero operandi insufficiente",assertThrows.getMessage());
@@ -467,6 +580,7 @@ public class CalcModuleTest {
     
     @Test
     public void testExecute5() throws WrongInputException {
+        System.out.println("Test execute() divisione per 0");
         //inserimento valori in stack
         module.inputControl("0+2j");
         module.inputControl("0+0j");
@@ -478,6 +592,7 @@ public class CalcModuleTest {
 
      @Test
     public void testExecute6() throws WrongInputException {
+        System.out.println("Test execute() operatore errato");
         //non abbastanza elementi -> eccezione
         OperatorNotFoundException assertThrows = assertThrows(OperatorNotFoundException.class,() -> module.execute("4+2j"));
         assertEquals("L'operatore usato non esiste",assertThrows.getMessage());
@@ -497,6 +612,7 @@ public class CalcModuleTest {
     */
     @Test
     public void testCmdStack1() throws WrongInputException {
+        System.out.println("Test cmdStack() clear");
         //inserimento valori in stack
         module.inputControl("0+2j");
         module.inputControl("0+0j");
@@ -510,6 +626,7 @@ public class CalcModuleTest {
     
     @Test
     public void testCmdStack2() throws WrongInputException {
+        System.out.println("Test cmdStack() dup");
         //inserimento valori in stack
         module.inputControl("1+2j");
         module.inputControl("0+0j");
@@ -529,6 +646,7 @@ public class CalcModuleTest {
     
     @Test
     public void testCmdStack3() throws WrongInputException {
+        System.out.println("Test cmdStack() drop");
         //inserimento valori in stack
         module.inputControl("1+2j");
         module.inputControl("0+0j");
@@ -545,6 +663,7 @@ public class CalcModuleTest {
     
     @Test
     public void testCmdStack4() throws WrongInputException {
+        System.out.println("Test cmdStack() swap");
         //inserimento valori in stack
         module.inputControl("1+2j");
         module.inputControl("0+0j");
@@ -555,16 +674,19 @@ public class CalcModuleTest {
         module.cmdStack("swap");
         
         //controllo se i due numeri invertiti di posto
-        NumeroComplesso[] num = module.extractNElementFromStack(2);
+        NumeroComplesso[] num = module.extractNElementFromStack(3);
         assertEquals(num[0].getRealPart(), comp1.getRealPart());
         assertEquals(num[0].getImPart(), comp1.getImPart());
         
         assertEquals(num[1].getRealPart(), comp2.getRealPart());
         assertEquals(num[1].getImPart(), comp2.getImPart());
+        
+        assertEquals(num.length,2);
     }
     
     @Test
     public void testCmdStack5() throws WrongInputException {
+        System.out.println("Test cmdStack() over");
         //inserimento valori in stack
         module.inputControl("1+2j");
         module.inputControl("0+0j");
@@ -575,12 +697,15 @@ public class CalcModuleTest {
         module.cmdStack("over");
         
         //controllo se i due numeri invertiti di posto
-        NumeroComplesso[] num = module.extractNElementFromStack(2);
+        NumeroComplesso[] num = module.extractNElementFromStack(3);
         assertEquals(num[0].getRealPart(), comp1.getRealPart());
         assertEquals(num[0].getImPart(), comp1.getImPart());
         
         assertEquals(num[1].getRealPart(), comp2.getRealPart());
         assertEquals(num[1].getImPart(), comp2.getImPart());
+        
+        assertEquals(num[2].getRealPart(), comp1.getRealPart());
+        assertEquals(num[2].getImPart(), comp1.getImPart());
     }
 
     /**
@@ -596,6 +721,7 @@ public class CalcModuleTest {
     */
     @Test
     public void testExtractNElementFromStack1() throws WrongInputException {
+        System.out.println("Test ExtractNElementFromStack() estrai meno elementi di quanti ne contenga lo stack");
         //inserimento valori in stack
         module.inputControl("0");
         module.inputControl("1");
@@ -616,6 +742,7 @@ public class CalcModuleTest {
     
      @Test
     public void testExtractNElementFromStack2() throws WrongInputException {
+        System.out.println("Test ExtractNElementFromStack() estrai più elementi di quanti ne contenga lo stack");
         //inserimento valori in stack
         module.inputControl("0");
         module.inputControl("1");
@@ -638,6 +765,7 @@ public class CalcModuleTest {
     
      @Test
     public void testExtractNElementFromStack3() throws WrongInputException {
+        System.out.println("Test ExtractNElementFromStack() stato dello stack inalterato dopo estrazione");
         //inserimento valori in stack
         module.inputControl("0");
         module.inputControl("1");

@@ -185,20 +185,19 @@ public class OperazioniBasilariTest {
         TEST 1 dividendo nullo
         TEST 2 divisore nullo
     
-        TEST 3 a 0; b +  c +; d+
-        TEST 4 a 0; b +  c +; d-
-        TEST 5 a 0; b -  c -; d+
-        TEST 6 a 0; b -  c -; d-
+        TEST 3 divisore reale positivo
+        TEST 4 divisore reale negativo
+        TEST 5 divisore complesso puro positivo
+        TEST 6 divisore complesso puro negativo
     
-        TEST 7  a +; b 0  c +; d+
-        TEST 8  a +; b 0  c +; d-
-        TEST 9  a -; b 0  c -; d+
-        TEST 10 a -; b 0  c -; d-
-    
+        TEST 7 divisore complesso, parte reale immaginaria positive
+        TEST 8 divisore complesso, parte reale positiva immaginaria negative
+        TEST 9 divisore complesso, parte reale negativa immaginaria positive
+        TEST 10 divisore complesso, parte reale immaginaria negative
     */
     @Test
     public void testDivisione1() throws Exception {
-        System.out.println("Test divisione() dividendo nullo, divosore nullo");
+        System.out.println("Test divisione() dividendo nullo");
         NumeroComplesso a = new NumeroComplesso(0.0,0.0);
         NumeroComplesso b = new NumeroComplesso(2.0,2.0);
         
@@ -207,7 +206,7 @@ public class OperazioniBasilariTest {
         assertEquals(0.0d, res.getRealPart());
         assertEquals(0.0d, res.getImPart());
     }
-    
+    @Test
     public void testDivisione2() throws Exception {
         System.out.println("Test divisione() dividendo non nullo, divisore nullo");
         NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
@@ -216,103 +215,91 @@ public class OperazioniBasilariTest {
         DividedByZeroException assertThrows = assertThrows(DividedByZeroException.class,() -> op.divisione(a,b));
         assertEquals("Impossibile dividere per 0",assertThrows.getMessage());
     }
-    
-    
     @Test
     public void testDivisione3() throws Exception {
-        System.out.println("Test divisione() a=0 b pos  /  c pos  d pos");
-        NumeroComplesso a = new NumeroComplesso(0.0,2.0);
-        NumeroComplesso b = new NumeroComplesso(2.0,2.0);
+        System.out.println("Test divisione() divisore reale positivo");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
+        NumeroComplesso b = new NumeroComplesso(2.0,0.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(1,res.getRealPart());
+        assertEquals(-2,res.getImPart());
     }
-    
     @Test
     public void testDivisione4() throws Exception {
-        System.out.println("Test divisione() a=0 b pos  /  c pos  d neg");
-        NumeroComplesso a = new NumeroComplesso(0.0,2.0);
-        NumeroComplesso b = new NumeroComplesso(2.0,-2.0);
+        System.out.println("Test divisione() divisore reale negativo");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
+        NumeroComplesso b = new NumeroComplesso(-2.0,0.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(-0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(-1,res.getRealPart());
+        assertEquals(2,res.getImPart());
     }
-    
     @Test
     public void testDivisione5() throws Exception {
-        System.out.println("Test divisione() a=0 b neg  /  c neg  d pos");
-        NumeroComplesso a = new NumeroComplesso(0.0,-2.0);
-        NumeroComplesso b = new NumeroComplesso(-2.0,2.0);
+        System.out.println("Test divisione() divisore complesso puro positivo");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
+        NumeroComplesso b = new NumeroComplesso(0.0,2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(-0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(-2,res.getRealPart());
+        assertEquals(-1,res.getImPart());
     }
-    
     @Test
     public void testDivisione6() throws Exception {
-        System.out.println("Test divisione() a=0 b neg  /  c neg  d neg");
-        NumeroComplesso a = new NumeroComplesso(0.0,-2.0);
-        NumeroComplesso b = new NumeroComplesso(-2.0,-2.0);
+        System.out.println("Test divisione() divisore complesso puro negativo");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
+        NumeroComplesso b = new NumeroComplesso(0.0,-2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(2,res.getRealPart());
+        assertEquals(1,res.getImPart());
     }
     
     @Test
     public void testDivisione7() throws Exception {
-        System.out.println("Test divisione() a pos b 0  /  c pos  d pos");
-        NumeroComplesso a = new NumeroComplesso(2.0,0.0);
+        System.out.println("Test divisione() divisore complesso, parte reale immaginaria positive");
+        NumeroComplesso a = new NumeroComplesso(2.0,4.0);
         NumeroComplesso b = new NumeroComplesso(2.0,2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(-0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(1.5d,res.getRealPart());
+        assertEquals(0.5d,res.getImPart());
     }
     
     @Test
-    public void testDivisione8() throws Exception {
-        System.out.println("Test divisione() a pos b 0  /  c pos  d neg");
-        NumeroComplesso a = new NumeroComplesso(2.0,0.0);
+     public void testDivisione8() throws Exception {
+        System.out.println("Test divisione() divisore complesso, parte reale positiva immaginaria negative");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
         NumeroComplesso b = new NumeroComplesso(2.0,-2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(1.5d,res.getRealPart());
+        assertEquals(-0.5d,res.getImPart());
     }
-    
-    @Test
-    public void testDivisione9() throws Exception {
-        System.out.println("Test divisione() a neg b 0  /  c neg  d pos");
-        NumeroComplesso a = new NumeroComplesso(-2.0,0.0);
+     
+     @Test
+     public void testDivisione9() throws Exception {
+        System.out.println("Test divisione() divisore complesso, parte reale negativa immaginaria positive");
+        NumeroComplesso a = new NumeroComplesso(-2.0,4.0);
         NumeroComplesso b = new NumeroComplesso(-2.0,2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(1.5d,res.getRealPart());
+        assertEquals(-0.5d,res.getImPart());
     }
-    
-    @Test
-    public void testDivisione10() throws Exception {
-        System.out.println("Test divisione() a neg b 0  /  c neg  d neg");
-        NumeroComplesso a = new NumeroComplesso(-2.0,0.0);
+     
+     @Test
+     public void testDivisione10() throws Exception {
+        System.out.println("Test divisione() divisore complesso, parte reale negativa immaginaria negative");
+        NumeroComplesso a = new NumeroComplesso(2.0,-4.0);
         NumeroComplesso b = new NumeroComplesso(-2.0,-2.0);
         
-        NumeroComplesso res = op.divisione(a,b);
-        System.out.println(res.toString());
-        assertEquals(0.5d, res.getRealPart());
-        assertEquals(-0.5d, res.getImPart());
+        NumeroComplesso res= op.divisione(a, b);
+        assertEquals(0.5d,res.getRealPart());
+        assertEquals(1.5d,res.getImPart());
     }
+    
     
     /**
      * Test of radiceQuadrata method, of class OperazioniBasilari.
