@@ -12,4 +12,10 @@ La documentazione sul design è disponibile [qui](https://github.com/PellegrinoT
 
 La matrice di tracciabilità aggiornata è disponibile qui [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13556692/Tracciabilita.pdf)
 
+La documentazione sui requisiti definitiva è disponibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13701399/Requisiti.pdf)
+La documentazione sul design definitiva è disponibile[qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13701404/Design.pdf)
+La documentazione sul testing è disponibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13701410/Testing.pdf)
+La matrice di tracciabilità definitiva è disponibile [qui](https://github.com/PellegrinoTulino/Progetto-gruppo-23/files/13701423/Matrice_Tracciabilita.pdf)
+
+
 
